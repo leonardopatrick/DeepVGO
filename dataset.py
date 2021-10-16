@@ -3,25 +3,26 @@ import re
 import shutil
 
 f = open('camerapos-20210131.txt', 'r')
+
 for line in f:
     if not line.startswith('x '):
-        #print(line)
-        collum = line.split()
-        phi = int(float(collum[6]))
-        img = (collum[8])
-        print(img)
+
+        column = line.split()
+        phi = int(float(column[6]))
+        image = (column[8])
+        print(image)
+
         if(phi<0):
             phi=(phi*-1)+100
         
-        div = (phi - (phi % 10)) 
-
-        diretorio = str(div) 
+        divider = (phi - (phi % 10)) 
+        directory = str(divider)
 
         try:
-            if not os.path.isdir(diretorio):
-                os.makedirs(diretorio)
+            if not os.path.isdir(directory):
+                os.makedirs(directory)
                 
         except OSError:
-            print('erro')
-        
-        shutil.copy(img,diretorio)
+            print('erro novo')
+            
+        shutil.copy(image, directory)
